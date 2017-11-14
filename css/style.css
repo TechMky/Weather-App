@@ -76,3 +76,6 @@ body {
   background-color: rgba(253, 43, 43, 0.801);
   box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
 }
+.vertical-rule{
+  border-left: 1px #BDBDBD solid;
+}
