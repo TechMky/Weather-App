@@ -1,18 +1,20 @@
 body {
   margin: 0 auto;
-  color: #fff;
-  background-color: steelblue;
+  font-family: 'Open Sans', sans-serif;
+  color: #212121;
+  background-color: #303F9F;
 }
-.button{
+.jumbotron .button{
   display: block;
-  margin: 3% auto;
-  width: 100px; 
+  margin: 7% auto; 
 }
-#desc{
+#desc, #location{
+  color: #757575;
   text-transform: capitalize;
 }
 .jumbotron{
-  background-color: rgb(0, 0, 0);
+  background-color: #FFFFFF;
+  margin: 5% auto;
 }
 .secondary i{
   font-size: 200%;
@@ -20,4 +22,57 @@ body {
 }
 .secondary{
   padding: 5%;
+}
+.main i{
+  font-size: 54px;
+}
+.main i span, .secondary i span{
+  letter-spacing: 2px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+.jumbotron h1{
+  color: #212121;
+  margin: 5% auto;
+  font-weight: 300;
+}
+.main{
+  padding: 7%;
+}
+.vertical-center{
+  margin-top: 20vh;
+}
+.button {
+  position: relative;
+  cursor: pointer;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 1.5rem;
+  color: #212121;
+  background-color: #FF5252;
+  width: 250px;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: .8px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 2px;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+}
+.button:hover {
+  text-decoration: none;
+  background-color: rgba(253, 43, 43, 0.801);
+  box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
 }

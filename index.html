@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/weather-icons.min.css">
 </head>
@@ -15,7 +16,7 @@
 <body>
     <div class="container">
         <main class="jumbotron text-center">
-            <h1 class="">Weather App</h1>
+            <h1>Weather App</h1>
             <div class="row">
                 <div class="col-md-6">
                     <div class="main">
@@ -24,22 +25,26 @@
                             <i class="" id="unit"></i>
                         </i>
                         <button class="button">Fahrenheit</button>
-                        <p id="desc"></p>
-                        <p id="location"></p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="secondary">
-                        <i class="wi wi-humidity">
-                            <span></span>
-                        </i>
                         <i class="wi wi-sunrise">
                             <span></span>
                         </i>
                         <i class="wi wi-sunset">
                             <span></span>
                         </i>
+                        <i class="wi wi-humidity">
+                            <span></span>
+                        </i>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="desc"></p>
+                    <p id="location"></p>
                 </div>
             </div>
         </main>
