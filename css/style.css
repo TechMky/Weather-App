@@ -79,3 +79,6 @@ body {
 .vertical-rule{
   border-left: 1px #BDBDBD solid;
 }
+#animate{
+  display: inline-block;
+}

@@ -1,12 +1,12 @@
 var App = (function($){
     var currentUnit = "C",
+    buttonText = 'Celcius',
     temp,
     weatherIcons;
     
     $.getJSON("scripts/icon.json",
         function (data) {
             weatherIcons = data;
-            // console.log(weatherIcons);
         }
     );
 
@@ -30,33 +30,50 @@ var App = (function($){
                 lat: position.coords.latitude,
             },
             dataType: "json",
-            success: changeWeather,
+            success: weather,
             error: () =>{
                 alert('Error fetching data. Please check your Internet connection.');
             }
         });
     }
-    $('button').click(function (e) {
+    $('.button').click(function (e) {
         e.preventDefault();
         if (currentUnit === "C") {
             currentUnit = "F"
             temp = (temp * 1.8) + 32;
-            e.target.innerText = "Celcius";
+            buttonText = "Celcius";
         } else {
             currentUnit = "C";
             temp = (temp - 32) / 1.8;
-            e.target.innerText = "Fahrenheit";
+            buttonText = "Fahrenheit";
         }
+        $('#animate').playKeyframe({
+            name: 'flipInX',
+            duration: '.5s',
+            fillMode: 'both',
+            complete: () =>{
+                $('#animate').resetKeyframe();
+            }
+        })
         $('#unit').toggleClass('wi-celsius wi-fahrenheit');
         $('#temp').text(Number(temp).toFixed(1));
+        $(this).text(buttonText);
+        $(this).playKeyframe({
+            name: 'flipInX',
+            duration: '.5s',
+            fillMode: 'both',
+            complete: () =>{
+                $(this).resetKeyframe();
+            }
+        })
     });
-    function changeWeather(response){
+    function weather(response){
         console.log(response);
         temp = response.main.temp;
         iconClass = iconBuilder(response);
         $('.main i').attr("class", iconClass);
         $('#temp').text(Number(temp).toFixed(1));
-        $('#unit').attr('class', 'wi wi-celsius')
+        $('#unit').attr('class', 'wi wi-celsius');
         $('.wi-humidity span').text(" " + response.main.humidity + " %");
         $('.wi-sunrise span').text(" " + getTime(response.sys.sunrise));
         $('.wi-sunset span').text(" " + getTime(response.sys.sunset));
@@ -82,11 +99,33 @@ var App = (function($){
         return prefix + dorn + weatherIcons[code].icon;
     }
     
+    $.keyframe.define({
+        name: 'flipInX',
+        "0%": {
+            'transform': 'perspective(400px) rotate3d(1, 0, 0, 90deg)',
+            'animation-timing-function': 'ease-in',
+            'opacity': '0'
+        },
+        '40%': {
+            'transform': 'perspective(400px) rotate3d(1, 0, 0, -20deg)',
+            'animation-timing-function': 'ease-in'
+        },
+        '60%': {
+            'transform': 'perspective(400px) rotate3d(1, 0, 0, 10deg)',
+            'opacity': '1'
+        },
+        '80%': {
+            'transform': 'perspective(400px) rotate3d(1, 0, 0, -5deg)'
+        },
+        '100%': {
+            'transform': 'perspective(400px)'
+        }
+    });
+    
     function getTime(timestamp){
         var time = new Date(timestamp * 1000);
         return time.getHours().toString()+ ":" + time.getMinutes().toString();
     }
-
     return {
         run: run
     };

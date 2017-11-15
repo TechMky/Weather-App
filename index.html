@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/jquery.keyframes.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -21,8 +22,10 @@
                 <div class="col-md-6">
                     <div class="main">
                         <i class="">
-                            <span id="temp"></span>
-                            <i class="" id="unit"></i>
+                            <div id="animate">
+                                <span class="" id="temp"></span>
+                                <i class="" id="unit"></i>
+                            </div>
                         </i>
                         <button class="button">Fahrenheit</button>
                     </div>
@@ -47,7 +50,9 @@
                     <p id="location"></p>
                 </div>
             </div>
-            <p class="text-right">- made by <a target="_blank" href="https://github.com/TechMky">@TechMky</a></p>
+            <p class="text-right">- made by
+                <a target="_blank" href="https://github.com/TechMky">@TechMky</a>
+            </p>
         </main>
     </div>
     <script type="text/javascript" src="scripts/icon.json"></script>
