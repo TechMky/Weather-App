@@ -82,3 +82,22 @@ body {
 #animate{
   display: inline-block;
 }
+.loader{
+  height: 150px;
+  width: 150px;
+  border: 5px solid #FFFFFf;
+  margin: auto;
+  border-radius: 50%;
+  border-top-color: #303F9F;
+  border-bottom-color: #303F9F;
+  animation: loading 2s linear infinite
+}
+
+@keyframes loading {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

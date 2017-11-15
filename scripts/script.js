@@ -11,6 +11,7 @@ var App = (function($){
     );
 
     function run() {
+        $('.jumbotron .row').hide();
         if ("geolocation" in navigator) {
             /* geolocation is available */
             // navigator.geolocation.getCurrentPosition()
@@ -29,10 +30,11 @@ var App = (function($){
                 lon: position.coords.longitude,
                 lat: position.coords.latitude,
             },
+            timeout: 10000,
             dataType: "json",
             success: weather,
-            error: () =>{
-                alert('Error fetching data. Please check your Internet connection.');
+            error: (xhr, textStatus) =>{
+                console.log('error', xhr, textStatus);
             }
         });
     }
@@ -79,6 +81,8 @@ var App = (function($){
         $('.wi-sunset span').text(" " + getTime(response.sys.sunset));
         $("#desc").text(response.weather[0].description);
         $('#location').text(response.name + ", " + response.sys.country);
+        $('.jumbotron .row').show();
+        $('.loader').hide();
     }
     function iconBuilder(rsp) {
         var dorn = "";
